@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { PrimaLogger } from "../plugins/PrismaLog.js";
+import { PrismaLogger } from "../plugins/PrismaLog.js";
 
 // Inisialisasi Prisma Client
 const DBConnection = new PrismaClient({
@@ -8,7 +8,7 @@ const DBConnection = new PrismaClient({
 
 // Event listener untuk menangkap log Prisma
 DBConnection.$on("query", (e) => {
-    PrimaLogger.info({
+    PrismaLogger.info({
         level: "query",
         message: e.query, // Query yang dijalankan
         params: e.params, // Parameter query
@@ -17,11 +17,11 @@ DBConnection.$on("query", (e) => {
 });
 
 DBConnection.$on("warn", (e) => {
-    PrimaLogger.warn({ level: "warn", message: e.message });
+    PrismaLogger.warn({ level: "warn", message: e.message });
 });
 
 DBConnection.$on("error", (e) => {
-    PrimaLogger.error({ level: "error", message: e.message });
+    PrismaLogger.error({ level: "error", message: e.message });
 });
 
 export { DBConnection };

@@ -11,8 +11,8 @@ if (!fs.existsSync(logDir)) {
     fs.mkdirSync(logDir, { recursive: true });
 }
 
-const PrimaLogger = createLogger({
-    level: "info", // Level log (info, warn, error)
+const PrismaLogger = createLogger({
+    level: "warn", // Level log (info, warn, error)
     format: format.combine(
         format.timestamp(), // Tambahkan timestamp ke setiap log
         format.json()       // Simpan dalam format JSON
@@ -22,4 +22,4 @@ const PrimaLogger = createLogger({
     ],
 });
 
-export { PrimaLogger };
+export { PrismaLogger };

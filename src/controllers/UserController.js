@@ -24,7 +24,7 @@ const UserController = {
             
             const user = await prisma.user.create({
                 data: {
-                    name: data.name,
+                    name: data.name.toUpperCase(),
                     nik: data.nik.toString(),
                     password
                 },
@@ -35,7 +35,7 @@ const UserController = {
             });
 
             return reply.code(201).send({
-                message: 'success register',
+                message: 'Success Register',
                 user: user
             });
         } catch (error) {
